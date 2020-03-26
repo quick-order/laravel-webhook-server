@@ -6,27 +6,31 @@ use GuzzleHttp\Psr7\Response;
 
 abstract class WebhookCallEvent
 {
-    public string $httpVerb;
+    public $httpVerb;
 
-    public string $webhookUrl;
+    public $webhookUrl;
 
-    public array $payload;
+    public $payload;
 
-    public array $headers;
+    public $headers;
 
-    public array $meta;
+    public $meta;
 
-    public array $tags;
+    public $tags;
 
-    public int $attempt;
+    public $attempt;
 
-    public ?Response $response;
+	/**
+	 * @var Response|null
+	 */
 
-    public ?string $errorType;
+    public $response;
 
-    public ?string $errorMessage;
+    public  $errorType;
 
-    public string $uuid;
+    public $errorMessage;
+
+    public $uuid;
 
     public function __construct(
         string $httpVerb,

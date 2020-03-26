@@ -20,41 +20,46 @@ class CallWebhookJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public ?string $webhookUrl = null;
+    public $webhookUrl = null;
 
-    public string $httpVerb;
+    public $httpVerb;
 
-    public int $tries;
+    public $tries;
 
-    public int $requestTimeout;
+    public $requestTimeout;
 
-    public string $backoffStrategyClass;
+    public $backoffStrategyClass;
 
-    public ?string $signerClass = null;
+    public $signerClass = null;
 
-    public array $headers = [];
+    public $headers = [];
 
-    public bool $verifySsl;
+    public $verifySsl;
 
     /** @var string */
     public $queue;
 
-    public array $payload = [];
+    public $payload = [];
 
-    public array $meta = [];
+    public $meta = [];
 
-    public array $tags = [];
+    public $tags = [];
 
-    public string $uuid = '';
+    public $uuid = '';
 
-    private ?Response $response = null;
 
-    private ?string $errorType = null;
+	/**
+	 * @var Response|null
+	 */
 
-    private ?string $errorMessage = null;
+    private $response = null;
 
-    public function handle()
-    {
+    private $errorType = null;
+
+    private $errorMessage = null;
+
+    public function handle() {
+
         /** @var \GuzzleHttp\Client $client */
         $client = app(Client::class);
 

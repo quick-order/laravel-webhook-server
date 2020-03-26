@@ -9,19 +9,27 @@ use Spatie\WebhookServer\Exceptions\InvalidBackoffStrategy;
 use Spatie\WebhookServer\Exceptions\InvalidSigner;
 use Spatie\WebhookServer\Signer\Signer;
 
-class WebhookCall
-{
-    protected CallWebhookJob $callWebhookJob;
+class WebhookCall {
 
-    protected string $uuid = '';
+	/**
+	 * @var \Illuminate\Contracts\Foundation\Application|mixed|CallWebhookJob
+	 */
 
-    protected string $secret;
+    protected $callWebhookJob;
 
-    protected Signer $signer;
+    protected $uuid = '';
 
-    protected array $headers = [];
+    protected $secret;
 
-    private array $payload = [];
+	/**
+	 * @var Signer
+	 */
+
+    protected $signer;
+
+    protected $headers = [];
+
+    private $payload = [];
 
     private $signWebhook = true;
 

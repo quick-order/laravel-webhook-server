@@ -5,7 +5,7 @@ return [
     /*
      *  The default queue that should be used to send webhook requests.
      */
-    'queue' => 'default',
+    'queue' => null,
 
     /*
      * The default http verb to use.
